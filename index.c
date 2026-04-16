@@ -19,12 +19,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+<<<<<<< HEAD
 #include <time.h>
+=======
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <dirent.h>
 
+<<<<<<< HEAD
 // Forward declarations for functions in object.c and pes.h
 extern void hash_to_hex(const ObjectID *id, char *hex_out);
 extern int hex_to_hash(const char *hex, ObjectID *id_out);
@@ -35,6 +39,8 @@ static int compare_index_entries(const void *a, const void *b) {
     return strcmp(((const IndexEntry *)a)->path, ((const IndexEntry *)b)->path);
 }
 
+=======
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 // ─── PROVIDED ────────────────────────────────────────────────────────────────
 
 // Find an index entry by path (linear scan).
@@ -146,6 +152,7 @@ int index_status(const Index *index) {
 //
 // Returns 0 on success, -1 on error.
 int index_load(Index *index) {
+<<<<<<< HEAD
     index->count = 0;
 
     FILE *fp = fopen(INDEX_FILE, "r");
@@ -175,6 +182,12 @@ int index_load(Index *index) {
 
     fclose(fp);
     return 0;
+=======
+    // TODO: Implement index loading
+    // (See Lab Appendix for logical steps)
+    (void)index;
+    return -1;
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 }
 
 // Save the index to .pes/index atomically.
@@ -188,6 +201,7 @@ int index_load(Index *index) {
 //
 // Returns 0 on success, -1 on error.
 int index_save(const Index *index) {
+<<<<<<< HEAD
     // Create a mutable copy to sort
     Index sorted_index = *index;
     qsort(sorted_index.entries, sorted_index.count, sizeof(IndexEntry), compare_index_entries);
@@ -222,6 +236,12 @@ int index_save(const Index *index) {
     }
 
     return 0;
+=======
+    // TODO: Implement atomic index saving
+    // (See Lab Appendix for logical steps)
+    (void)index;
+    return -1;
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 }
 
 // Stage a file for the next commit.
@@ -234,6 +254,7 @@ int index_save(const Index *index) {
 //
 // Returns 0 on success, -1 on error.
 int index_add(Index *index, const char *path) {
+<<<<<<< HEAD
     // Get file info
     struct stat st;
     if (stat(path, &st) != 0) {
@@ -291,4 +312,10 @@ int index_add(Index *index, const char *path) {
 
     // Save index
     return index_save(index);
+=======
+    // TODO: Implement file staging
+    // (See Lab Appendix for logical steps)
+    (void)index; (void)path;
+    return -1;
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 }

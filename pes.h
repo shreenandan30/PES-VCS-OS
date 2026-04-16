@@ -1,7 +1,11 @@
 // pes.h — Core data structures and constants for PES-VCS
 //
+<<<<<<< HEAD
 // This file is PROVIDED. Do not modify unless adding helper declarations
 // for your own utility functions.
+=======
+// This file is PROVIDED. Do not modify.
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 
 #ifndef PES_H
 #define PES_H

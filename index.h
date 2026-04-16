@@ -42,16 +42,27 @@ IndexEntry* index_find(Index *index, const char *path);
 
 // Print the status of the working directory compared to the index and HEAD.
 // Output format:
+<<<<<<< HEAD
 //   Staged changes (index vs HEAD):
 //     new file:   <path>
 //     modified:   <path>
 //
 //   Unstaged changes (working dir vs index):
+=======
+//   Staged changes:
+//     staged:     <path>
+//
+//   Unstaged changes:
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 //     modified:   <path>
 //     deleted:    <path>
 //
 //   Untracked files:
+<<<<<<< HEAD
 //     <path>
+=======
+//     untracked:  <path>
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 int index_status(const Index *index);
 
 #endif // INDEX_H

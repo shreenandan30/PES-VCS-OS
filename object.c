@@ -37,11 +37,19 @@ int hex_to_hash(const char *hex, ObjectID *id_out) {
 }
 
 void compute_hash(const void *data, size_t len, ObjectID *id_out) {
+<<<<<<< HEAD
     EVP_MD_CTX *ctx = EVP_MD_CTX_new();
     if (!ctx) return;
     EVP_DigestInit_ex(ctx, EVP_sha256(), NULL);
     EVP_DigestUpdate(ctx, data, len);
     EVP_DigestFinal_ex(ctx, id_out->hash, NULL);
+=======
+    unsigned int hash_len;
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    EVP_DigestInit_ex(ctx, EVP_sha256(), NULL);
+    EVP_DigestUpdate(ctx, data, len);
+    EVP_DigestFinal_ex(ctx, id_out->hash, &hash_len);
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
     EVP_MD_CTX_free(ctx);
 }
 
@@ -94,6 +102,7 @@ int object_exists(const ObjectID *id) {
 //
 // Returns 0 on success, -1 on error.
 int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out) {
+<<<<<<< HEAD
     char header[64];
     const char *type_str;
 
@@ -156,6 +165,11 @@ int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out
 
     free(buffer);
     return 0;
+=======
+    // TODO: Implement
+    (void)type; (void)data; (void)len; (void)id_out;
+    return -1;
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 }
 
 // Read an object from the store.
@@ -179,6 +193,7 @@ int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out
 //   - malloc, memcpy     : allocating and returning the extracted data
 //
 // The caller is responsible for calling free(*data_out).
+<<<<<<< HEAD
 //
 // The caller is responsible for calling free(*data_out).
 // Returns 0 on success, -1 on error (file not found, corrupt, etc.).
@@ -243,3 +258,11 @@ int object_read(const ObjectID *id, ObjectType *type_out, void **data_out, size_
     free(buffer);
     return 0;
 }
+=======
+// Returns 0 on success, -1 on error (file not found, corrupt, etc.).
+int object_read(const ObjectID *id, ObjectType *type_out, void **data_out, size_t *len_out) {
+    // TODO: Implement
+    (void)id; (void)type_out; (void)data_out; (void)len_out;
+    return -1;
+}
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e

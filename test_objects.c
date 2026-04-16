@@ -84,8 +84,14 @@ void test_integrity(void) {
 
 int main(void) {
     // Clean slate
+<<<<<<< HEAD
     system("rm -rf .pes");
     system("mkdir -p .pes/objects .pes/refs/heads");
+=======
+    int rc __attribute__((unused));
+    rc = system("rm -rf .pes");
+    rc = system("mkdir -p .pes/objects .pes/refs/heads");
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 
     test_blob_storage();
     test_deduplication();

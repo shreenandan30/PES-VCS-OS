@@ -18,7 +18,11 @@ pes: $(OBJS)
 test_objects: test_objects.o object.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
+<<<<<<< HEAD
 test_tree: test_tree.o object.o tree.o index.o
+=======
+test_tree: test_tree.o object.o tree.o
+>>>>>>> 552a850fe4d06edae55167e7f9bd9b780f3d3d2e
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 # ─── Convenience targets ────────────────────────────────────────────────────
